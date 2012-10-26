@@ -1,0 +1,7 @@
+parameters:
+#    amex_trivia.example.class: Amex\TriviaBundle\Example
+
+services:
+#    amex_trivia.example:
+#        class: %amex_trivia.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
