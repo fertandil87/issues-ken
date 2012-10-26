@@ -5,6 +5,8 @@ app/bootstrap*
 vendor/*
 */logs/*
 */cache/*
+composer.lock
+composer.phar
 web/uploads/*
 web/bundles/*
 
