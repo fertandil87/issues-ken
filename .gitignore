@@ -9,6 +9,7 @@ composer.lock
 composer.phar
 web/uploads/*
 web/bundles/*
+nbproject/
 
 # Configuration files
 app/config/parameters.ini
