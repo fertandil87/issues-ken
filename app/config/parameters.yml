@@ -2,14 +2,14 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     ~
-    database_name:     symfony
+    database_name:     amex
     database_user:     root
-    database_password: ~
+    database_password: fer
 
     mailer_transport:  smtp
     mailer_host:       localhost
     mailer_user:       ~
     mailer_password:   ~
 
-    locale:            en
+    locale:            es
     secret:            ThisTokenIsNotSoSecretChangeIt
