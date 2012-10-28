@@ -1,0 +1,184 @@
+
+html{
+    background: #000 url('../images/background.png') center center;
+    color: #fff;
+    
+}
+.introBoX{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -377px;
+    margin-top: -266px;
+    width: 754px;
+    height: 532px;
+}
+.mainContainer{
+    position: relative;
+    width: 960px;
+    height: auto;
+    padding-bottom: 40px;
+    margin: 0px auto;
+}
+.amexLogo{
+    float: right;
+}
+.loginTitle{
+    text-align: center;
+    padding-bottom: 25px;
+}
+.login{
+    position: relative;
+    margin: 0px auto;
+    width: 462px;
+    height: 159px;
+    padding-top: 45px;
+    background: #000 url('../images/login_box_03.png');
+}
+.registro{
+    background: #000 url('../images/registro_v_03.png');
+    height: 276px;
+    padding-top: 35px;
+}
+.login .row{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.login .row .label{
+    float: left;
+    padding-right: 15px;
+    width: 150px;
+    font-size: 26px;
+    text-align: right;
+}
+.login .row .input{
+    float: left;
+    width: 297px;
+    text-align: left;
+    font-size: 20px;
+}
+.login .row input{
+    background: url('../images/02login_03.png');
+    width: 250px;
+    height: 32px;
+    padding: 1px 4px;
+    font-size: 20px;
+    color: #aaa;
+    border: none;
+}
+.enviarLogin{
+    text-align: center;
+    height: 100px;
+    padding: 0px 130px;
+    position: relative;
+}
+.enviarRegistro{
+    margin-top: -39px;
+    position: relative;
+}
+.enviarLogin input{
+    background: #000 url('../images/yellow_button_07.png');
+    border: none;
+    color:#f7bb25;
+    text-align: center;
+    width: 96px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.enviarLogin .recuperarClave{
+    right: 130px;
+    bottom: 0px; 
+    position: absolute;
+}
+.enviarLogin .registrar{
+    left: 130px;
+    bottom: 0px; 
+    position: absolute;
+}
+.enviarLogin a{
+    text-decoration: none;
+    font-size: 22px;
+    color: #fff;
+}
+.trivia .ayuda{
+    padding-top: 50px;
+    font-size: 26px;
+    color: #F7BB25;
+}
+.trivia .pregunta{
+    font-size: 36px;
+    padding-bottom: 70px;
+}
+.trivia .pregunta r{
+    color: #249090;
+}
+.trivia .opciones .opcion{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5px;
+    font-size: 26px;
+    padding-left: 165px;
+}
+.trivia .opciones .opcion a{
+    color: #249090;
+    text-decoration: none;
+}
+.trivia .opciones .opcion a span{
+    color: #F7BB25;
+
+}
+.trivia .opciones .opcion a:hover{
+    color: #fff;
+}
+.trivia .opciones .opcion img{
+    float: left;
+    margin-right: 5px;
+}
+.desafio .ayuda{
+    padding-top: 0px;
+    font-size: 26px;
+    color: #F7BB25;
+}
+.desafio .pregunta{
+    font-size: 36px;
+    padding-bottom: 70px;
+}
+.desafio .pregunta r{
+    color: #249090;
+}
+.desafio .opciones{
+    color: #249090;
+    font-size: 26px;
+    text-align: center;
+}
+.desafio .opciones .opcion{
+    color:darkmagenta;
+}
+.desafio .enviarLogin{
+    padding-top: 100px;
+}
+
+
+
+
+
+footer{
+    position: fixed;
+    padding-bottom: 40px;
+    bottom: 0px;
+    background: #000;
+}
+footer .ranking{
+    font-size: 16px;
+    background: #000;
+}
+footer .ranking a{
+    color: #249090;
+    font-weight: bold;
+    text-decoration: none;
+}
+footer .ranking a:hover{
+    color: #f7bb25;
+}

@@ -1,1 +1,16 @@
-Hello {{ name }}!
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Amex - The Global Sales Experience</title>
+        <link href="{{ asset('bundles/amextrivia/css/common.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="introBoX">
+            <a href="{{path('amex_trivia_iniciar')}}">
+                <img src="{{ asset('bundles/amextrivia/images/intro.png') }}" alt="Ingresar al sitio"/>
+            </a>
+        </div>
+    </body>
+</html>

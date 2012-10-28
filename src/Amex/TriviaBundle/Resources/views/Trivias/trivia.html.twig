@@ -1,0 +1,39 @@
+{% extends 'AmexTriviaBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="trivia">
+    <div class="pregunta">
+        Cual de los siguientes <r>mercados/regiones</r> utiliza la nueva estructura?
+    </div>
+    <div class="opciones">
+        <div class="opcion">
+            <img src="{{ asset('bundles/amextrivia/images/opcion_11.png')}}" alt="A" />
+            <a href="#">
+                American Express ayuda a incrementar las ventas de su negocio.
+            </a>
+        </div>
+        <div class="opcion">
+            <img src="{{ asset('bundles/amextrivia/images/opcion_11.png')}}" alt="B" />
+            <a href="#"> 
+                American Express ayuda a acelerar el exito de su negocio. <span>&iexcl;Muy Bien!</span>
+            </a>
+        </div>
+        <div class="opcion">
+            <img src="{{ asset('bundles/amextrivia/images/opcion_11.png')}}" alt="C" />
+            <a href="#">
+                American Express es el mejor socio de su negocio.
+            </a>
+        </div>
+        <div class="opcion">
+            <img src="{{ asset('bundles/amextrivia/images/opcion_11.png')}}" alt="D" />
+            <a href="#">
+                American Express es el mejor socio de su negocio. American Express es el mejor socio de su negocio.
+                American Express es el mejor socio de su negocio.
+            </a>
+        </div>
+    </div>
+    <div class="ayuda">
+        Ayuda: "En la pagina numero 5 encontraras la respuesta"
+    </div>
+</div>
+{% endblock %}

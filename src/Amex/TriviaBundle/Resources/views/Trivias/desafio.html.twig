@@ -1,0 +1,27 @@
+{% extends 'AmexTriviaBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="desafio">
+    <div class="pregunta">
+        Cuales son las tres mejores peliculas para ver <r>un dia de lluvia?</r>
+    </div>
+    <div class="opciones">
+        Subi una imagen de por cada una de ellas:
+        <div class="opcion">
+            <input type="file"/>
+        </div>
+        <div class="opcion">
+            <input type="file"/>
+        </div>
+        <div class="opcion">
+            <input type="file"/>
+        </div>
+    </div>
+    <div class="enviarLogin">
+        <input type="submit" value="Cargar" />
+    </div>
+    <div class="ayuda">
+        Ayuda: "En la pagina numero 5 encontraras la respuesta"
+    </div>
+</div>
+{% endblock %}

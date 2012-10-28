@@ -1,3 +1,52 @@
 amex_trivia_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: AmexTriviaBundle:Default:index }
+  pattern:  /
+  defaults: { _controller: AmexTriviaBundle:Default:index }
+  
+amex_trivia_login:
+  pattern:  /login
+  defaults: { _controller: AmexTriviaBundle:Default:login }
+  
+amex_trivia_registro:
+  pattern:  /registro
+  defaults: { _controller: AmexTriviaBundle:Default:registro }
+
+amex_trivia_recuperar_clave:
+  pattern:  /recuperar-clave
+  defaults: { _controller: AmexTriviaBundle:Default:recuperarClave }
+
+amex_trivia_inicio:
+  pattern: /inicio
+  defaults: { _controller: AmexTriviaBundle:Default:inicio }
+  
+amex_trivia_trivia:
+  pattern: /inicio/trivia
+  defaults: { _controller: AmexTriviaBundle:Trivia:trivia }
+
+amex_trivia_verdadero_falso:
+  pattern: /inicio/verdadero-falso
+  defaults: { _controller: AmexTriviaBundle:Trivia:verdaderoFalso }
+
+amex_trivia_desafio:
+  pattern: /inicio/desafio
+  defaults: { _controller: AmexTriviaBundle:Trivia:desafio }
+  
+amex_email_bienvenida:
+  pattern: /email/bienvenida
+  defaults: { _controller: AmexTriviaBundle:Email:bienvenida }
+
+amex_email_motivador:
+  pattern: /email/motivador
+  defaults: { _controller: AmexTriviaBundle:Email:motivador }
+
+amex_email_ganador_dia:
+  pattern: /email/ganador-dia
+  defaults: { _controller: AmexTriviaBundle:Email:ganadorDia }
+
+amex_email_ganador_final:
+  pattern: /email/ganador-final
+  defaults: { _controller: AmexTriviaBundle:Email:ganadorFinal }
+  
+amex_email_mecanica:
+  pattern: /email/mecanica
+  defaults: { _controller: AmexTriviaBundle:Email:mecanica }
+  

@@ -1,0 +1,32 @@
+{% extends 'AmexTriviaBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="loginTitle">
+    <img src="{{ asset('bundles/amextrivia/images/login_title_03.png') }}" alt="Estas a punto de conocer algo nuevo y ganar muchos premios"/>
+</div>
+<form>
+    <div class="login">
+        <div class="row">
+            <div class="label">email</div>
+            <div class="input"><input type="text"/></div>
+        </div>
+        <div class="row">
+            <div class="label">password</div>
+            <div class="input"><input type="text"/></div>
+        </div>
+    </div>
+    <div class="enviarLogin">
+        <input type="submit" value="Enviar" />
+        <div class="registrar">
+            <a href="{{ path('amex_trivia_registro') }}">
+                nuevo usuario
+            </a>
+        </div>
+        <div class="recuperarClave">
+            <a href="{{ path('amex_trivia_recuperar_clave') }}">
+                olvide mi contraseña
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock %}

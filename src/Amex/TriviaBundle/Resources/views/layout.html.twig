@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Amex - The Global Sales Experience</title>
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/amextrivia/css/common.css') }}" rel="stylesheet">
+
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="mainContainer">
+            <div class="logo">
+                <a href="{{ path('amex_trivia_inicio') }}">
+                    <img src="{{ asset('bundles/amextrivia/images/logo.png') }}" alt="The Global Sales Experience" />
+                </a>
+                <a href="https://www.americanexpress.com/" class="amexLogo">
+                    <img src="{{ asset('bundles/amextrivia/images/amex_logo.png') }}" alt="Amex" />
+                </a>
+            </div>
+            {% block body %}
+
+            {% endblock %}
+            <footer>
+                <div class="ranking">
+                    Ver ranking dia&nbsp;&nbsp;
+                    <a href="#">&nbsp;1&nbsp;</a>
+                    <span> | </span>
+                    <a href="#">&nbsp;2&nbsp;</a>
+                    <span> | </span>
+                    <a href="#">&nbsp;3&nbsp;</a>
+                    <span> | </span>
+                    <a href="#">&nbsp;4&nbsp;</a>
+                    <span> | </span>
+                    <a href="#">&nbsp;5&nbsp;</a>
+                </div>
+            </footer>
+            {% block javascripts %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
