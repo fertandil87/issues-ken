@@ -21,7 +21,7 @@ Amex\TriviaBundle\Entity\User:
             nullable: false
         password:
             type: string
-            length: 45
+            length: 255
             fixed: false
             nullable: false
         name:

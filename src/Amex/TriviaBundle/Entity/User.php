@@ -3,14 +3,14 @@
 namespace Amex\TriviaBundle\Entity;
 
 use Symfony\Component\Security\Core\User\EquatableInterface;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Amex\TriviaBundle\Entity\User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer $id
@@ -47,6 +47,21 @@ class User
      */
     private $loggedTime;
 
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $salt = "moresecurepasswords";
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+
+
+    public function __construct()
+    {
+        $this->isActive = true;
+    }
 
     /**
      * Get id
@@ -195,28 +210,35 @@ class User
     {
         return $this->loggedTime;
     }
-    
-    public function isEqualTo(UserInterface $user)
+
+    /**
+     * @inheritDoc
+     */
+    public function getUsername()
     {
-        return $this->username === $user->getUsername();
-    }
-    public function isAccountNonExpired()
-    {
-        return true;
+        return $this->email;
     }
 
-    public function isAccountNonLocked()
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
     {
-        return true;
+        return $this->salt;
     }
 
-    public function isCredentialsNonExpired()
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
     {
-        return true;
+        return array('ROLE_USER');
     }
 
-    public function isEnabled()
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
     {
-        return true;
     }
 }

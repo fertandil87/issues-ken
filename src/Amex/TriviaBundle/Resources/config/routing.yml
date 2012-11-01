@@ -8,6 +8,9 @@ amex_trivia_login:
   
 login_check:
     pattern:   /login_check
+
+logout:
+    pattern:   /logout
   
 amex_trivia_registro:
   pattern:  /registro
