@@ -14,10 +14,7 @@ class DefaultController extends Controller
     {
         return $this->render('AmexTriviaBundle:Default:inicio.html.twig');
     }
-    public function loginAction()
-    {
-        return $this->render('AmexTriviaBundle:Default:login.html.twig');
-    }
+    
     public function registroAction()
     {
         return $this->render('AmexTriviaBundle:Default:registro.html.twig');

@@ -1,0 +1,1 @@
+INSERT INTO amex.`user` (country, email, password, `name`, surname, logged_time) VALUES ('1', 'fertandil87@gmail.com', 'ferfer', 'Fernando', 'Saez', 0);

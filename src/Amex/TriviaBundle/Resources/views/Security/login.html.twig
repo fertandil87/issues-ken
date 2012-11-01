@@ -4,24 +4,23 @@
 <div class="loginTitle">
     <img src="{{ asset('bundles/amextrivia/images/login_title_03.png') }}" alt="Estas a punto de conocer algo nuevo y ganar muchos premios"/>
 </div>
-<form>
+{% if error %}
+    <div>{{ error.message }}</div>
+{% endif %}
+<form action="{{ path('login_check') }}" method="post">
     <div class="login">
         <div class="row">
             <div class="label">email</div>
-            <div class="input"><input type="text"/></div>
+            <div class="input"><input type="text" name="_username" value="{{ last_username }}" id="username" /></div>
         </div>
         <div class="row">
             <div class="label">password</div>
-            <div class="input"><input type="text"/></div>
+            <div class="input"><input type="password" id="password" name="_password" /></div>
         </div>
     </div>
+    <input type="hidden" name="_target_path" value="/inicio" />
     <div class="enviarLogin">
         <input type="submit" value="Enviar" />
-        <div class="registrar">
-            <a href="{{ path('amex_trivia_registro') }}">
-                nuevo usuario
-            </a>
-        </div>
         <div class="recuperarClave">
             <a href="{{ path('amex_trivia_recuperar_clave') }}">
                 olvide mi contraseña

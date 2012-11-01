@@ -2,6 +2,9 @@
 
 namespace Amex\TriviaBundle\Entity;
 
+use Symfony\Component\Security\Core\User\EquatableInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -191,5 +194,29 @@ class User
     public function getLoggedTime()
     {
         return $this->loggedTime;
+    }
+    
+    public function isEqualTo(UserInterface $user)
+    {
+        return $this->username === $user->getUsername();
+    }
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return true;
     }
 }

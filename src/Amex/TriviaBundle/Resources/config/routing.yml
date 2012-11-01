@@ -4,7 +4,10 @@ amex_trivia_homepage:
   
 amex_trivia_login:
   pattern:  /login
-  defaults: { _controller: AmexTriviaBundle:Default:login }
+  defaults: { _controller: AmexTriviaBundle:Security:login }
+  
+login_check:
+    pattern:   /login_check
   
 amex_trivia_registro:
   pattern:  /registro
@@ -50,3 +53,14 @@ amex_email_mecanica:
   pattern: /email/mecanica
   defaults: { _controller: AmexTriviaBundle:Email:mecanica }
   
+  
+  
+  
+# admin routing
+amex_admin:
+  pattern: /admin
+  defaults: { _controller: AmexTriviaBundle:Admin:index }
+  
+amex_admin_login:
+  pattern: /admin/login
+  defaults: { _controller: AmexTriviaBundle:Admin:login }
