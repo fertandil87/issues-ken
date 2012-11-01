@@ -1,0 +1,42 @@
+Amex\TriviaBundle\Entity\User:
+    type: entity
+    table: user
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        country:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        email:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        password:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        name:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        surname:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        loggedTime:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: logged_time
+    lifecycleCallbacks: {  }

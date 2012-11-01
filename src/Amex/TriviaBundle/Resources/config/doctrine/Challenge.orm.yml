@@ -1,0 +1,31 @@
+Amex\TriviaBundle\Entity\Challenge:
+    type: entity
+    table: challenge
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        question:
+            type: text
+            nullable: false
+        answer:
+            type: text
+            nullable: false
+        date:
+            type: datetime
+            nullable: false
+    manyToOne:
+        type:
+            targetEntity: Type
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                type:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

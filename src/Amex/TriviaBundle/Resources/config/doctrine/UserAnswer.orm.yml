@@ -1,0 +1,47 @@
+Amex\TriviaBundle\Entity\UserAnswer:
+    type: entity
+    table: user_answer
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        answer:
+            type: text
+            nullable: false
+        responseTime:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: response_time
+        rightAnswer:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: right_answer
+        date:
+            type: datetime
+            nullable: false
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id
+            orphanRemoval: false
+        challenge:
+            targetEntity: Challenge
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                challenge:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
