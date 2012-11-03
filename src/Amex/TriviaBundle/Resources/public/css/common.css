@@ -1,7 +1,12 @@
+@font-face {
+    font-family: amexFont;
+    src: url('../fonts/ncsr55w.ttf');
+}
 
 html{
     background: #000 url('../images/background.png') center center;
     color: #fff;
+    font-family: 'amexFont', "Times New Roman";
     
 }
 .introBoX{
@@ -181,4 +186,17 @@ footer .ranking a{
 }
 footer .ranking a:hover{
     color: #f7bb25;
+}
+.botonDesafio, .mensajeInicio{
+    color: #fff;
+    font-size: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: relative;
+    display: block;
+    text-align: center;
+    font-family: 'amexFont'
+}
+.botonDesafio:hover{
+    color: #249090;
 }

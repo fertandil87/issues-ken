@@ -1,0 +1,46 @@
+{% extends 'AmexTriviaBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="trivia">
+    <div class="pregunta">
+        {{ question | raw }}
+    </div>
+    <div class="opciones">
+        {% for opcion in answer %}
+            <div class="opcion">
+                <img src="{{ asset('bundles/amextrivia/images/opcion'~loop.index~'.png')}}" alt="A" />
+                <a href="{{ path('amex_trivia_trivia_resultado',{'respuesta':loop.index}) }}">
+                    {{opcion}} 
+                    {% if (respuesta == loop.index) %}
+                        {% if respuesta_user == loop.index %}
+                            <span>&iexcl;Muy Bien!</span>
+                        {% endif %}
+                    {% endif %}
+                    {% if (respuesta_user == loop.index) %}
+                        {% if respuesta != loop.index %}
+                            <span>&iexcl;Incorrecto!</span>
+                        {% endif %}
+                    {% endif %}
+                </a>
+            </div>
+        {% endfor %}
+        
+    </div>
+    {% if ayuda %}
+        <div class="ayuda">
+            Ayuda: "{{ ayuda }}"
+        </div>
+    {% endif %}
+</div>
+{% if respuesta == respuesta_user %}
+    <script language="JavaScript" type="text/javascript">
+
+        var pagina="{{ path('amex_trivia_inicio') }}"
+        function redireccionar() 
+        {
+            location.href=pagina
+        } 
+        setTimeout ("redireccionar()", 10000);
+    </script>
+{% endif %}
+{% endblock %}

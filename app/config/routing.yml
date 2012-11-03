@@ -2,6 +2,10 @@ amex_trivia:
     resource: "@AmexTriviaBundle/Resources/config/routing.yml"
     prefix:   /
 
+AmexTriviaBundle_administrator:
+        resource: "@AmexTriviaBundle/Resources/config/routing/useranswer.yml"
+        prefix:   /admin
+
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

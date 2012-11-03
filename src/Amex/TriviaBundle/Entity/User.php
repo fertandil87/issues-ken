@@ -241,4 +241,8 @@ class User implements UserInterface
     public function eraseCredentials()
     {
     }
+    public function __toString() {
+        $pais = ($this->country == 1) ? '(Argentina)':'(Mexico)';
+        return $this->name.' '.$this->surname.$pais;
+    }
 }

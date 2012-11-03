@@ -1,0 +1,15 @@
+{
+    "opciones": {
+        "1": "American Express ayuda a incrementar las ventas de su negocio.",
+        "2": "American Express ayuda a acelerar el exito de su negocio.",
+        "3": "American Express es el mejor socio de su negocio."
+    },
+    "respuesta": "2"
+}
+{
+    "opciones": {
+        "1": "Quisque dignissim faucibus metus, vel malesuada libero cursus ac.",
+        "2": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
+    },
+    "respuesta": "2"
+}

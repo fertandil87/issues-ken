@@ -192,4 +192,6 @@ class UserAnswer
     {
         return $this->challenge;
     }
+    
+    
 }

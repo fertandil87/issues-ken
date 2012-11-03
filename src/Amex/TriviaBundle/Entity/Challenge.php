@@ -136,4 +136,7 @@ class Challenge
     {
         return $this->type;
     }
+    public function __toString() {
+        return '() '.$this->question.'['.$this->getType().']';
+    }
 }

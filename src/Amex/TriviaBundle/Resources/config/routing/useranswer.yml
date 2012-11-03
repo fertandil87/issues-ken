@@ -1,0 +1,30 @@
+administrator:
+    pattern:  /
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:index" }
+
+administrator_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:show" }
+
+administrator_new:
+    pattern:  /new
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:new" }
+
+administrator_create:
+    pattern:  /create
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:create" }
+    requirements: { _method: post }
+
+administrator_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:edit" }
+
+administrator_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:update" }
+    requirements: { _method: post }
+
+administrator_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:delete" }
+    requirements: { _method: post }
