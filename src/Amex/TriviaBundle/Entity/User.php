@@ -57,6 +57,11 @@ class User implements UserInterface
      */
     private $isActive;
 
+    /**
+     * @var string role
+     */
+    private $role;
+
 
     public function __construct()
     {
@@ -211,6 +216,15 @@ class User implements UserInterface
         return $this->loggedTime;
     }
 
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+    public function getRole()
+    {
+        return $this->role;
+    }
+
     /**
      * @inheritDoc
      */
@@ -232,7 +246,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array($this->getRole());
     }
 
     /**

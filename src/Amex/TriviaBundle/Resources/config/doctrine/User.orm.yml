@@ -39,4 +39,9 @@ Amex\TriviaBundle\Entity\User:
             unsigned: false
             nullable: false
             column: logged_time
+        role:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
     lifecycleCallbacks: {  }
