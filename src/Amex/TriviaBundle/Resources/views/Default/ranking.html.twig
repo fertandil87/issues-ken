@@ -1,0 +1,19 @@
+{% extends 'AmexTriviaBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="rankingContainer">
+    <div class="title">Ranking dia {{numberDia}}</div>
+    <div class="argentina">Argentina</div>
+    <div class="mexico">Mexico</div>
+    {% for user in usersPlayedArgentina %}
+        <div class="userArgentina{{loop.index}}">
+            {{user.getUser().getName()}}
+        </div>
+    {% endfor %}
+    {% for user in usersPlayedMexico %}
+        <div class="userMexico{{loop.index}}">
+            {{user.getUser().getName()}}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

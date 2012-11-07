@@ -200,3 +200,110 @@ footer .ranking a:hover{
 .botonDesafio:hover{
     color: #249090;
 }
+
+#overlay{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 3000px;
+    height: 3000px;
+    background: rgba(0,0,0,0.8);
+    display: none;
+}
+#aviso{
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin-top: -148px;
+    margin-left: -245px;
+    z-index: 20;
+}
+.falso{
+    margin-left: 50px;
+}
+.verdaderoFalso .pregunta{
+    padding: 0px 204px 30px;
+    font-size: 24px;
+    color: #249090;
+}
+.verdaderoFalso .opciones .opcion{
+    text-align: center;
+    padding: 0;
+}
+.verdaderoFalso .opciones .opcion a{
+    display: inline-block;
+}
+.rankingContainer{
+    position: relative;
+    background: url('../images/ranking_background_03.png');
+    width: 908px;
+    height: 587px;
+}
+.imagesUploaded{
+    text-align: center;
+}
+.imagesUploaded img{
+    margin-left: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px  #fff;
+}
+.imagesUploaded img:first-child{
+    margin: 0px;
+}
+.rankingContainer .title{
+    position: absolute;
+top: 9px;
+left: 325px;
+font-size: 40px;
+}
+.rankingContainer .argentina{
+    font-size: 40px;
+position: absolute;
+top: 84px;
+left: 130px;
+}
+.rankingContainer .mexico{
+    font-size: 40px;
+position: absolute;
+top: 84px;
+left: 630px;
+}
+.rankingContainer .userArgentina1{
+    position: absolute;
+top: 187px;
+left: 173px;
+font-size: 50px;
+}
+.rankingContainer .userArgentina2{
+    position: absolute;
+top: 274px;
+left: 219px;
+font-size: 40px;
+    
+}
+.rankingContainer .userArgentina3{
+    position: absolute;
+font-size: 40px;
+top: 333px;
+left: 245px;
+}
+.rankingContainer .userMexico1{
+    position: absolute;
+top: 187px;
+left: 615px;
+font-size: 50px;
+}
+.rankingContainer .userMexico2{
+    position: absolute;
+top: 274px;
+left: 655px;
+font-size: 40px;
+    
+}
+.rankingContainer .userMexico3{
+    position: absolute;
+font-size: 40px;
+top: 333px;
+left: 660px;
+}

@@ -18,6 +18,41 @@ class DefaultController extends Controller
     {
         return $this->render('AmexTriviaBundle:Default:index.html.twig');
     }
+    public function rankingFooterAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            "SELECT c FROM AmexTriviaBundle:Challenge c ORDER BY c.date ASC "
+        );
+        $challenges = $query->getResult();
+        return $this->render('AmexTriviaBundle::rankingFooter.html.twig' ,array('challenges'=>$challenges));
+    }
+    public function rankingAction($numberDia,$dia)
+    {
+        $usersPlayed = array();
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            "SELECT c FROM AmexTriviaBundle:Challenge c WHERE c.date LIKE '".$dia."%' "
+        )->setMaxResults(1);
+        $challenge = current($query->getResult());
+        if (!$challenge){
+        }else{
+            /*$product = $this->getDoctrine()
+                ->getRepository('AmexTriviaBundle:UserAnswer')
+                ->findOneByIdJoinedToUser($id);
+
+            $category = $product->getCategory();*/
+            $query = $em->createQuery("SELECT ua, u FROM AmexTriviaBundle:UserAnswer ua JOIN ua.user u WHERE u.id = ua.user AND u.country = 1 AND ua.challenge = :challenge ORDER BY ua.responseTime ASC")->setParameter('challenge',$challenge->getId())->setMaxResults(3);
+            $usersPlayedArgentina = $query->getResult();
+            $query = $em->createQuery("SELECT ua, u FROM AmexTriviaBundle:UserAnswer ua JOIN ua.user u WHERE u.id = ua.user AND u.country = 2 AND ua.challenge = :challenge ORDER BY ua.responseTime ASC")->setParameter('challenge',$challenge->getId())->setMaxResults(3);
+            $usersPlayedMexico = $query->getResult();
+        }
+        return $this->render('AmexTriviaBundle:Default:ranking.html.twig',array(
+            'numberDia' => $numberDia,
+            'usersPlayedArgentina' => $usersPlayedArgentina,
+            'usersPlayedMexico' => $usersPlayedMexico
+        ));
+    }
     public function inicioAction()
     {
         $logout = $this->get('router')->generate('logout');

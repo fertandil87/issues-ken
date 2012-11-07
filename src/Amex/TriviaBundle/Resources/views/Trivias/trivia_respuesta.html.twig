@@ -32,15 +32,5 @@
         </div>
     {% endif %}
 </div>
-{% if respuesta == respuesta_user %}
-    <script language="JavaScript" type="text/javascript">
-
-        var pagina="{{ path('amex_trivia_inicio') }}"
-        function redireccionar() 
-        {
-            location.href=pagina
-        } 
-        setTimeout ("redireccionar()", 10000);
-    </script>
-{% endif %}
+{% include 'AmexTriviaBundle:Trivias:scriptGanador.html.twig' %}
 {% endblock %}

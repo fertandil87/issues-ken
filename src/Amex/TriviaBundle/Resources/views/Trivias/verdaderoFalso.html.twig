@@ -1,17 +1,17 @@
 {% extends 'AmexTriviaBundle::layout.html.twig' %}
 
 {% block body %}
-<div class="trivia">
+<div class="trivia verdaderoFalso">
     <div class="pregunta">
         {{ question | raw }}
     </div>
     <div class="opciones">
         <div class="opcion">
-            <a href="{{ path('amex_trivia_trivia_resultado',{'respuesta':1}) }}">
+            <a href="{{ path('amex_trivia_verdadero_falso_resultado',{'respuesta':1}) }}">
                 <img src="{{ asset('bundles/amextrivia/images/verdadero.png')}}" alt="Verdadero" />
             </a>
-            <a href="{{ path('amex_trivia_trivia_resultado',{'respuesta':0}) }}">
-                <img src="{{ asset('bundles/amextrivia/images/falso.png')}}" alt="Falso" />
+            <a href="{{ path('amex_trivia_verdadero_falso_resultado',{'respuesta':0}) }}">
+                <img class="falso" src="{{ asset('bundles/amextrivia/images/falso.png')}}" alt="Falso" />
             </a>
         </div>
     </div>

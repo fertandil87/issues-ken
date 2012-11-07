@@ -1,10 +1,42 @@
 {
     "opciones": {
+        "1": "Us, Canada, JAPAN.",
+        "2": "US, Canada.",
+        "3": "US, Canada y EMEA."
+    },
+    "respuesta": "1"
+}
+{
+    "opciones": {
         "1": "American Express ayuda a incrementar las ventas de su negocio.",
         "2": "American Express ayuda a acelerar el exito de su negocio.",
         "3": "American Express es el mejor socio de su negocio."
     },
     "respuesta": "2"
+}
+{
+    "consigna": "Subi rapido una imagen de cada una de ellas!. Otros usuarios estan participando en este momento!",
+}
+{
+    "respuesta": "1"
+}
+{
+    "respuesta": "1"
+}
+{
+    "opciones": {
+        "1": "Servicio sobresaliente.",
+        "2": "Proteccion contra fraude.",
+        "3": "Mejor desempeño."
+        "4": "Todos los anteriores."
+    },
+    "respuesta": "4"
+}
+{
+    "respuesta": "1"
+}
+{
+    "respuesta": "1"
 }
 {
     "respuesta": "1"
