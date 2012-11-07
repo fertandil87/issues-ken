@@ -73,5 +73,7 @@ amex_email_mecanica:
   defaults: { _controller: AmexTriviaBundle:Email:mecanica }
 
 amex_admin_emails:
-  pattern: /admin/emails
+  pattern: /admin/{country}/emails
   defaults: { _controller: AmexTriviaBundle:Emails:index }
+  requirements:
+    country: arg|mex

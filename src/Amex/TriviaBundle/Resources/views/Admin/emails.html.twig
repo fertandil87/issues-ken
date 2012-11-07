@@ -11,7 +11,7 @@
         {% endjavascripts %}
     </head>
     <body>
-        <form method="post" action="{{ path('amex_admin_emails') }}">
+        <form method="post" action="{{ path('amex_admin_emails', {'country': app.request.get('country')}) }}">
             <div class="form-actions">
                 <input type="hidden" name="type" value="welcome" />
                 Destinatario:
@@ -24,7 +24,7 @@
                 <button type="submit" class="btn btn-primary">Enviar Email Bienvenida</button>
             </div>
         </form>
-        <form method="post" action="{{ path('amex_admin_emails') }}">
+        <form method="post" action="{{ path('amex_admin_emails', {'country': app.request.get('country')}) }}">
             <div class="form-actions">
                 <input type="hidden" name="type" value="dailywin" />
                 Destinatario:
@@ -38,7 +38,7 @@
                 <button type="submit" class="btn btn-primary">Enviar Email Ganador del Día</button>
             </div>
         </form>
-        <form method="post" action="{{ path('amex_admin_emails') }}">
+        <form method="post" action="{{ path('amex_admin_emails', {'country': app.request.get('country')}) }}">
             <div class="form-actions">
                 <input type="hidden" name="type" value="finalwin" />
                 Destinatario:
@@ -48,10 +48,28 @@
                         <option value="{{ user.id }}">{{ user.getEmail }}</option>
                     {% endfor %}
                 </select>
+                Ganador:
+                <select name="user1">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
+                Segundo:
+                <select name="user2">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
+                Tercero:
+                <select name="user3">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
                 <button type="submit" class="btn btn-primary">Enviar Email Ganador Final</button>
             </div>
         </form>
-        <form method="post" action="{{ path('amex_admin_emails') }}">
+        <form method="post" action="{{ path('amex_admin_emails', {'country': app.request.get('country')}) }}">
             <div class="form-actions">
                 <input type="hidden" name="type" value="instructions" />
                 Destinatario:
@@ -64,7 +82,7 @@
                 <button type="submit" class="btn btn-primary">Enviar Email Mecánica</button>
             </div>
         </form>
-        <form method="post" action="{{ path('amex_admin_emails') }}">
+        <form method="post" action="{{ path('amex_admin_emails', {'country': app.request.get('country')}) }}">
             <div class="form-actions">
                 <input type="hidden" name="type" value="motivation" />
                 Todos menos:
