@@ -51,11 +51,20 @@ class TriviaController extends Controller {
     }
 
     public function verdaderoFalsoAction() {
+        $usr= $this->get('security.context')->getToken()->getUser();
+        $id = $usr->getId();
+        $this->verifySession($id);
         $challenge = $this->getChallenge();
-        if (empty($challenge))
+        if ((!$challenge))
             return $this->redirect($this->generateUrl('amex_trivia_inicio'));
-        $answer = $challenge->getAnswer();
-        return $this->render('AmexTriviaBundle:Trivias:verdadoFalso.html.twig');
+        $answer = json_decode($challenge->getAnswer(), true);
+        $question = $challenge->getQuestion();
+        $ayuda = empty($answer['ayuda']) ? '' : $answer['ayuda'];
+        return $this->render('AmexTriviaBundle:Trivias:verdaderoFalso.html.twig', array(
+                    'respuesta' => $answer['respuesta'],
+                    'ayuda' => $ayuda,
+                    'question' => $question
+                ));
     }
 
     public function triviaAction() {
