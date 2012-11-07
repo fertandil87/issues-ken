@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>Amex :: Envío de emails</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        {% stylesheets '@AmexTriviaBundle/Resources/public/css/bootstrap.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        {% javascripts '@AmexTriviaBundle/Resources/public/js/bootstrap.min.js' %}
+            <script src="{{ asset_url }}" type="text/javascript"></script>
+        {% endjavascripts %}
+    </head>
+    <body>
+        <form method="post" action="{{ path('amex_admin_emails') }}">
+            <div class="form-actions">
+                <input type="hidden" name="type" value="welcome" />
+                Destinatario:
+                <select name="to">
+                    <option value="all">-- TODOS --</option>
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Enviar Email Bienvenida</button>
+            </div>
+        </form>
+        <form method="post" action="{{ path('amex_admin_emails') }}">
+            <div class="form-actions">
+                <input type="hidden" name="type" value="dailywin" />
+                Destinatario:
+                <select name="to">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
+                Premio:
+                <input type="text" name="reward" value="" placeholder="Inserte aquí el premio..." />
+                <button type="submit" class="btn btn-primary">Enviar Email Ganador del Día</button>
+            </div>
+        </form>
+        <form method="post" action="{{ path('amex_admin_emails') }}">
+            <div class="form-actions">
+                <input type="hidden" name="type" value="finalwin" />
+                Destinatario:
+                <select name="to">
+                    <option value="all">-- TODOS --</option>
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Enviar Email Ganador Final</button>
+            </div>
+        </form>
+        <form method="post" action="{{ path('amex_admin_emails') }}">
+            <div class="form-actions">
+                <input type="hidden" name="type" value="instructions" />
+                Destinatario:
+                <select name="to">
+                    <option value="all">-- TODOS --</option>
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Enviar Email Mecánica</button>
+            </div>
+        </form>
+        <form method="post" action="{{ path('amex_admin_emails') }}">
+            <div class="form-actions">
+                <input type="hidden" name="type" value="motivation" />
+                Todos menos:
+                <select name="to">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.getEmail }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Enviar Email Motivador</button>
+            </div>
+        </form>
+    </body>
+</html>
