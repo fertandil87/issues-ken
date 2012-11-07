@@ -50,7 +50,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=32)
      */
-    private $salt = "moresecurepasswords";
+    private $salt = "";
 
     /**
      * @ORM\Column(name="is_active", type="boolean")

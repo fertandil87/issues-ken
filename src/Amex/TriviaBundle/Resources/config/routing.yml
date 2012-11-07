@@ -7,10 +7,10 @@ amex_trivia_login:
   defaults: { _controller: AmexTriviaBundle:Security:login }
   
 login_check:
-    pattern:   /login_check
+    pattern: /login_check
 
 logout:
-    pattern:   /logout
+    pattern: /logout
   
 amex_trivia_registro:
   pattern:  /registro
@@ -23,11 +23,11 @@ amex_trivia_recuperar_clave:
 amex_trivia_inicio:
   pattern: /inicio
   defaults: { _controller: AmexTriviaBundle:Default:inicio }
-  
+
 amex_trivia_trivia:
   pattern: /inicio/trivia
   defaults: { _controller: AmexTriviaBundle:Trivia:trivia }
-  
+
 amex_trivia_trivia_resultado:
   pattern: /inicio/trivia/{respuesta}
   defaults: { _controller: AmexTriviaBundle:Trivia:triviaCheck }
@@ -39,7 +39,7 @@ amex_trivia_verdadero_falso:
 amex_trivia_desafio:
   pattern: /inicio/desafio
   defaults: { _controller: AmexTriviaBundle:Trivia:desafio }
-  
+
 amex_email_bienvenida:
   pattern: /email/bienvenida
   defaults: { _controller: AmexTriviaBundle:Email:bienvenida }
@@ -55,8 +55,11 @@ amex_email_ganador_dia:
 amex_email_ganador_final:
   pattern: /email/ganador-final
   defaults: { _controller: AmexTriviaBundle:Email:ganadorFinal }
-  
+
 amex_email_mecanica:
   pattern: /email/mecanica
   defaults: { _controller: AmexTriviaBundle:Email:mecanica }
-  
+
+amex_admin_emails:
+  pattern: /admin/emails
+  defaults: { _controller: AmexTriviaBundle:Emails:index }
