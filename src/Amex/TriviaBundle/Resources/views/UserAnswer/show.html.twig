@@ -1,4 +1,4 @@
-<h1>UserAnswer</h1>
+<h1>Detalles de la respuesta</h1>
 
 <table class="record_properties">
     <tbody>
@@ -7,19 +7,25 @@
             <td>{{ entity.id }}</td>
         </tr>
         <tr>
-            <th>Answer</th>
-            <td>{{ entity.answer }}</td>
+            <th>¿Que respondio?</th>
+            <td>
+                {% if entity.getChallenge().getType().getId() != 2 %}
+                    {{ entity.answer }}
+                {% else %}
+                    {% render "AmexTriviaBundle:UserAnswer:galeria" with {'json':entity.answer} %}
+                {% endif %}
+            </td>
         </tr>
         <tr>
-            <th>Responsetime</th>
+            <th>Tiempo</th>
             <td>{{ entity.responseTime }}</td>
         </tr>
         <tr>
-            <th>Rightanswer</th>
-            <td>{{ entity.rightAnswer }}</td>
+            <th>Respuesta</th>
+            <td>{% if entity.rightAnswer %}correcto{% else %}mal{% endif %}</td>
         </tr>
         <tr>
-            <th>Date</th>
+            <th>Fecha</th>
             <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
         </tr>
     </tbody>

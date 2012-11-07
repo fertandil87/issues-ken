@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Amex\TriviaBundle\Entity\UserAnswer;
 use Amex\TriviaBundle\Form\UserAnswerType;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 /**
  * UserAnswer controller.
  *
@@ -179,5 +181,47 @@ class UserAnswerController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+    public function galeriaAction($json)
+    {
+        $imagenes = json_decode($json,true);
+       return $this->render('AmexTriviaBundle:UserAnswer:galeria.html.twig', array(
+            'imagenes'      => $imagenes
+        ));
+    }
+    
+    public function correctoAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AmexTriviaBundle:UserAnswer')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find UserAnswer entity.');
+        }
+        $entity->setRightAnswer(true);
+        $em->persist($entity);
+        $em->flush();
+        $request = $this->getRequest();
+        $referer = $request->headers->get('referer');       
+
+        return new RedirectResponse($referer);
+    }
+    public function incorrectoAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AmexTriviaBundle:UserAnswer')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find UserAnswer entity.');
+        }
+        $entity->setRightAnswer(false);
+        $em->persist($entity);
+        $em->flush();
+        $request = $this->getRequest();
+        $referer = $request->headers->get('referer');       
+
+        return new RedirectResponse($referer);
     }
 }
