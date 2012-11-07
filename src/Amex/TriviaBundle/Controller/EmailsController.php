@@ -7,9 +7,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class EmailsController extends Controller
 {
-    public function indexAction()
+    public function indexAction($country)
     {
-        $request = $this->getRequest();
+        $request   = $this->getRequest();
+        $countries = array('arg' => 1, 'mex' => 2);
 
         if ($request->isMethod('POST')) {
             $emailTitle = 'Amex :: The Global Experience';
@@ -19,7 +20,10 @@ class EmailsController extends Controller
             
             if ($request->request->get('type') == 'welcome') {
                 if ($idUser == 'all') {
-                    $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array('role' => 'ROLE_USER'));
+                    $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array(
+                        'role'    => 'ROLE_USER',
+                        'country' => $countries[$country],
+                    ));
                     foreach ($user as $item) {
                         $this->sendWelcomeEmail($emailTitle, $emailFrom, $item->getEmail(), $item->getName());
                     }
@@ -27,22 +31,34 @@ class EmailsController extends Controller
                     $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->find($idUser);
                     $this->sendWelcomeEmail($emailTitle, $emailFrom, $user->getEmail(), $user->getName());
                 }
+
             } elseif ($request->request->get('type') == 'dailywin') {
                 $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->find($idUser);
                 $this->sendWinnerEmail($emailTitle, $emailFrom, $user->getEmail(), $user->getName(), $request->request->get('reward'));
+
             } elseif ($request->request->get('type') == 'finalwin') {
+                $user1 = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->find($request->request->get('user1'));
+                $user2 = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->find($request->request->get('user2'));
+                $user3 = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->find($request->request->get('user3'));
                 if ($idUser == 'all') {
-                    $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array('role' => 'ROLE_USER'));
+                    $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array(
+                        'role'    => 'ROLE_USER',
+                        'country' => $countries[$country],
+                    ));
                     foreach ($user as $item) {
-                        $this->sendFinalWinnerEmail($emailTitle, $emailFrom, $item->getEmail());
+                        $this->sendFinalWinnerEmail($emailTitle, $emailFrom, $item->getEmail(), $user1->getName(), $user2->getName(), $user3->getName());
                     }
                 } else {
                     $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->find($idUser);
-                    $this->sendFinalWinnerEmail($emailTitle, $emailFrom, $user->getEmail());
+                    $this->sendFinalWinnerEmail($emailTitle, $emailFrom, $user->getEmail(), $user1->getName(), $user2->getName(), $user3->getName());
                 }
+
             } elseif ($request->request->get('type') == 'instructions') {
                 if ($idUser == 'all') {
-                    $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array('role' => 'ROLE_USER'));
+                    $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array(
+                        'role'    => 'ROLE_USER',
+                        'country' => $countries[$country],
+                    ));
                     foreach ($user as $item) {
                         $this->sendInstEmail($emailTitle, $emailFrom, $item->getEmail());
                     }
@@ -50,8 +66,12 @@ class EmailsController extends Controller
                     $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->find($idUser);
                     $this->sendInstEmail($emailTitle, $emailFrom, $user->getEmail());
                 }
+
             } elseif ($request->request->get('type') == 'motivation') {
-                $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array('role' => 'ROLE_USER'));
+                $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array(
+                    'role'    => 'ROLE_USER',
+                    'country' => $countries[$country],
+                ));
                 foreach ($user as $item) {
                     if ($item->getId() != $idUser) {
                         $this->sendMotivEmail($emailTitle, $emailFrom, $item->getEmail(), $item->getName());
@@ -60,7 +80,10 @@ class EmailsController extends Controller
             }
         } 
 
-        $users = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array('role' => 'ROLE_USER'));
+        $users = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findBy(array(
+            'role'    => 'ROLE_USER',
+            'country' => $countries[$country],
+        ));
 
         return $this->render('AmexTriviaBundle:Admin:emails.html.twig', array(
             'users' => $users,
@@ -103,15 +126,10 @@ class EmailsController extends Controller
     }
 
 
-    public function sendFinalWinnerEmail($emailTitle, $emailFrom, $emailTo)
+    public function sendFinalWinnerEmail($emailTitle, $emailFrom, $emailTo, $userName1, $userName2, $userName3)
     {
         $request = $this->getRequest();
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/';
-
-        // TODO: HACER EL QUERY PARA OBTENER LOS GANADORES.
-        $userName1 = 'Nicolás';
-        $userName2 = 'Ferdinando';
-        $userName3 = 'Juancho';
 
         $message = \Swift_Message::newInstance()
             ->setSubject($emailTitle)
