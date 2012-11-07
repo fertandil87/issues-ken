@@ -1,0 +1,24 @@
+{% extends 'AmexTriviaBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="desafio">
+    <div class="pregunta">
+        {{ question |raw }}
+    </div>
+    
+        <div class="opciones">
+            <br/>
+            <br/>
+        </div>
+        
+        <div class="imagesUploaded">
+            {% for image in respuesta %}
+                <img src="{{ asset(image)}}" alt="imagen"  width="175" height="250" />
+            {% endfor %}
+        </div>
+    <div class="ayuda">
+        {{ ayuda | raw }}
+    </div>
+</div>
+{% include 'AmexTriviaBundle:Trivias:scriptGanador.html.twig' %}
+{% endblock %}

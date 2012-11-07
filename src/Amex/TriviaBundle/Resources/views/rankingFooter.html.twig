@@ -1,0 +1,7 @@
+<div class="ranking">
+    Ver ranking dia&nbsp;&nbsp;
+    {% for day in challenges %}
+        <a href="{{ path('amex_trivia_ranking', {'dia':day.getDate()|date('Y-m-d'),'numberDia':loop.index}) }}">&nbsp;{{loop.index}}&nbsp;</a>
+        <span> | </span>
+    {% endfor %}
+</div>

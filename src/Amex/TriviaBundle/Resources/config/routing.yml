@@ -15,6 +15,10 @@ logout:
 amex_trivia_registro:
   pattern:  /registro
   defaults: { _controller: AmexTriviaBundle:Default:registro }
+  
+amex_trivia_ranking:
+  pattern:  /ranking/{numberDia}/{dia}
+  defaults: { _controller: AmexTriviaBundle:Default:ranking }
 
 amex_trivia_recuperar_clave:
   pattern:  /recuperar-clave
@@ -35,10 +39,18 @@ amex_trivia_trivia_resultado:
 amex_trivia_verdadero_falso:
   pattern: /inicio/verdadero-falso
   defaults: { _controller: AmexTriviaBundle:Trivia:verdaderoFalso }
+  
+amex_trivia_verdadero_falso_resultado:
+  pattern: /inicio/verdadero-falso/{respuesta}
+  defaults: { _controller: AmexTriviaBundle:Trivia:verdaderoFalsoCheck }
 
 amex_trivia_desafio:
   pattern: /inicio/desafio
   defaults: { _controller: AmexTriviaBundle:Trivia:desafio }
+  
+amex_trivia_desafio_resultado:
+  pattern: /inicio/desafio/{uaId}
+  defaults: { _controller: AmexTriviaBundle:Trivia:desafioCheck }
   
 amex_email_bienvenida:
   pattern: /email/bienvenida

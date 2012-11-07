@@ -3,25 +3,21 @@
 {% block body %}
 <div class="desafio">
     <div class="pregunta">
-        Cuales son las tres mejores peliculas para ver <r>un dia de lluvia?</r>
+        {{ question |raw }}
     </div>
-    <div class="opciones">
-        Subi una imagen de por cada una de ellas:
-        <div class="opcion">
-            <input type="file"/>
+    <form action="{{ path('amex_trivia_desafio') }}" method="post" {{ form_enctype(form) }}>
+        <div class="opciones">
+            {{ consigna |raw }}
+            <div class="opcion">
+                {{ form_widget(form) }}
+            </div>
         </div>
-        <div class="opcion">
-            <input type="file"/>
+        <div class="enviarLogin">
+            <input type="submit" value="Cargar" />
         </div>
-        <div class="opcion">
-            <input type="file"/>
-        </div>
-    </div>
-    <div class="enviarLogin">
-        <input type="submit" value="Cargar" />
-    </div>
+    </form>
     <div class="ayuda">
-        Ayuda: "En la pagina numero 5 encontraras la respuesta"
+        {{ ayuda | raw }}
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,19 @@
+<div id="overlay"></div>
+<img id="aviso" src="{{ asset('bundles/amextrivia/images/pop_gracias.png')}}" alt="A" />
+<script src="{{ asset('js/jquery-1.8.2.min.js') }}" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+
+    var pagina="{{ path('amex_trivia_inicio') }}"
+    function redireccionar() 
+    {
+        location.href=pagina
+    }
+    function popup() 
+    {
+        $('#overlay').show();
+        $('#aviso').show();
+    }
+
+    setTimeout ("popup()", 3000);
+    setTimeout ("redireccionar()", 10000);
+</script>
