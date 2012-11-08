@@ -1,32 +1,50 @@
-<h1>UserAnswer list</h1>
+{% stylesheets '@AmexTriviaBundle/Resources/public/css/bootstrap.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% javascripts '@AmexTriviaBundle/Resources/public/js/bootstrap.min.js' %}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+<h1>Listado de respuestas</h1>
 
-<table class="records_list">
+<table class="records_list table-bordered table-hover table-striped" >
     <thead>
         <tr>
             <th>Id</th>
-            <th>Answer</th>
-            <th>Responsetime</th>
-            <th>Rightanswer</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>¿Que respondio?</th>
+            <th>Tiempo</th>
+            <th>Respuesta</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         <tr>
             <td><a href="{{ path('administrator_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.answer }}</td>
+            <td>
+                {% if entity.getChallenge().getType().getId() != 2 %}
+                    {{ entity.answer }}
+                {% else %}
+                    {% render "AmexTriviaBundle:UserAnswer:galeria" with {'json':entity.answer} %}
+                {% endif %}
+            </td>
             <td>{{ entity.responseTime }}</td>
-            <td>{{ entity.rightAnswer }}</td>
+            <td>{% if entity.rightAnswer %}correcto{% else %}mal{% endif %}</td>
             <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('administrator_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('administrator_show', { 'id': entity.id }) }}">Ver</a>
                     </li>
                     <li>
-                        <a href="{{ path('administrator_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('administrator_set_incorrecto', { 'id': entity.id }) }}">Incorrecto</a>
                     </li>
+                    <li>
+                        <a href="{{ path('administrator_set_correcto', { 'id': entity.id }) }}">Correcto</a>
+                    </li>
+                    <!--<li>
+                        <a href="{{ path('administrator_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>-->
                 </ul>
             </td>
         </tr>

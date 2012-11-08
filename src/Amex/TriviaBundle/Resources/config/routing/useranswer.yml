@@ -1,6 +1,7 @@
 administrator:
     pattern:  /
     defaults: { _controller: "AmexTriviaBundle:UserAnswer:index" }
+  
 
 administrator_show:
     pattern:  /{id}/show
@@ -28,3 +29,11 @@ administrator_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "AmexTriviaBundle:UserAnswer:delete" }
     requirements: { _method: post }
+
+administrator_set_incorrecto:
+    pattern:  /{id}/incorrecto
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:incorrecto" }
+
+administrator_set_correcto:
+    pattern:  /{id}/correcto
+    defaults: { _controller: "AmexTriviaBundle:UserAnswer:correcto" }

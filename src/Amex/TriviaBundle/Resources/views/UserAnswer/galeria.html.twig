@@ -1,0 +1,5 @@
+{% for imagen in imagenes %}
+    <a href="{{ asset(imagen)}}" target="_blank">
+        <img src="{{ asset(imagen)}}" alt="imagen" width="50" height="50"/>
+    </a>
+{% endfor %}

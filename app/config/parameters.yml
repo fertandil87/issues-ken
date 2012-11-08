@@ -4,7 +4,7 @@ parameters:
     database_port:     ~
     database_name:     amex
     database_user:     root
-    database_password: 
+    database_password: fer
 
     mailer_transport:  gmail
     mailer_host:       localhost
