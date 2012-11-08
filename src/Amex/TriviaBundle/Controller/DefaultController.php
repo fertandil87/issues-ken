@@ -95,13 +95,42 @@ class DefaultController extends Controller
 
         return $this->render('AmexTriviaBundle:Default:inicio.html.twig',array('msg' => $msg));
     }
-    
+
+
     public function registroAction()
     {
         return $this->render('AmexTriviaBundle:Default:registro.html.twig');
     }
+
+
     public function recuperarClaveAction()
     {
+        $request = $this->getRequest();
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/';
+
+        if ($request->isMethod('POST')) {
+            $user = $this->getDoctrine()->getRepository('AmexTriviaBundle:User')->findOneByEmail($request->request->get('email'));
+
+            if ($user) {
+                $emailTitle = 'Amex :: Recuperar Contraseña';
+                $emailFrom  = 'example@mail.com';
+
+                $message = \Swift_Message::newInstance()
+                    ->setSubject($emailTitle)
+                    ->setFrom($emailFrom)
+                    ->setTo($user->getEmail())
+                    ->setBody($this->renderView('AmexTriviaBundle:Email:recuperarClave.html.twig', array(
+                        'baseUrl'   => $baseurl,
+                        'userName'  => $user->getName(),
+                        'userEmail' => $user->getEmail(),
+                        'userPass'  => $user->getPassword(),
+                    )), 'text/html');
+                $this->get('mailer')->send($message);
+
+                return $this->redirect($this->generateUrl('amex_trivia_homepage'));
+            }
+        }
+
         return $this->render('AmexTriviaBundle:Default:recuperarClave.html.twig');
     }
 }
